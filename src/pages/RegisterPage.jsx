@@ -27,7 +27,7 @@ const RegisterPage = () => {
     watch,
     formState: { errors },
   } = useForm({
-    mode: "onTouched",
+    mode: "onChange",
     shouldUnregister: false,
     defaultValues: {
       firstName: "",
