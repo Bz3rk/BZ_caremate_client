@@ -20,7 +20,6 @@ const Works = () => {
 
   const firstStep = Steps.find((step) => step.id == 1);
   const [activeStep, setActiveStep] = useState(firstStep);
-  console.log(activeStep);
   const Icon = activeStep.icon;
 
   return (
@@ -75,7 +74,7 @@ const Works = () => {
 
         {/* Description panel  */}
 
-        <div className=" bg-gray-100 w-[80%] md:w-[70%] border-2 border-primary-200 my-2 rounded-2xl shadow-lg p-8 mx-auto ">
+        <div className=" bg-white w-[80%] md:w-[70%] border-2 border-primary-200 my-2 rounded-2xl shadow-lg p-8 mx-auto ">
           
           <motion.div
             variants={slideLeft(0.4)}

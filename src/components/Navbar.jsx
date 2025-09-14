@@ -48,7 +48,7 @@ const Navbar = () => {
             animate={{ opacity: 1}}
             exit={{ opacity: 0}}
             transition={{ duration: 0.4 }}
-            className="absolute top-18 left-0 z-20 w-full h-screen bg-black/50 sm:hidden "
+            className="absolute top-16 left-0 z-20 w-full h-screen bg-black/50 sm:hidden "
           >
             <motion.div 
             initial={{ opacity: 0, y: -100 }}
@@ -57,16 +57,24 @@ const Navbar = () => {
             transition={{ duration: 0.5 }}
             className="container py-6 max-w-[95%] mt-2 text-lg uppercase font-semibold text-white bg-primary-300  rounded-xl">
               <div className="flex flex-col justify-center items-center gap-6">
-            <NavLink className="text-white" to="">
+            <NavLink 
+            onClick={() => setOpen((prevState) => !prevState)}
+            className="text-white" to="/">
               Home
             </NavLink>
-            <NavLink className="text-white" to="">
+            <NavLink 
+            onClick={() => setOpen((prevState) => !prevState)}
+            className="text-white" to="">
               Caregivers
             </NavLink>
-            <NavLink className="text-white" to="">
+            <NavLink 
+            onClick={() => setOpen((prevState) => !prevState)}
+            className="text-white" to="">
               Contact
             </NavLink>
-            <NavLink className="text-white" to="">
+            <NavLink 
+            onClick={() => setOpen((prevState) => !prevState)}
+            className="text-white" to=" ">
               About
             </NavLink>
             </div>
