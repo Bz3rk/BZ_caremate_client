@@ -138,216 +138,209 @@ const RegisterPage = () => {
         ) : (
           <>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-              {firstStep ? (
-                <>
-                  {/* Names and Identification section ( step ) */}
-                  <div className="flex flex-col ">
-                    <label
-                      htmlFor="firstname"
-                      className="text-lg sm:text-xl text-gray-600 font-semibold "
-                    >
-                      First name
-                    </label>
+              <div className={`${firstStep ? "block" : "hidden"}`}>
+                {/* Names and Identification section ( step ) */}
+                <div className="flex flex-col ">
+                  <label
+                    htmlFor="firstName"
+                    className="text-lg sm:text-xl text-gray-600 font-semibold "
+                  >
+                    First name
+                  </label>
 
-                    <div className="flex  items-center">
-                      <input
-                        className="form-input"
-                        type="text"
-                        name="firstname"
-                        id="firstname"
-                        placeholder="Input your First name...."
-                        {...register("firstName", {
-                          required: "First Name is required",
-                        })}
-                      />
-                      <IdentificationIcon className="w-6 h-6 text-shadow-lg text-primary-200" />
-                    </div>
-                    {errors.firstName && (
-                      <p className="text-red-500 tracking-wider font-semibold italic">
-                        {errors.firstName.message}
-                      </p>
-                    )}
+                  <div className="flex  items-center">
+                    <input
+                      className="form-input"
+                      type="text"
+                      id="firstName"
+                      placeholder="Input your First name...."
+                      {...register("firstName", {
+                        required: "First Name is required",
+                      })}
+                    />
+                    <IdentificationIcon className="w-6 h-6 text-shadow-lg text-primary-200" />
                   </div>
-                  <div className="flex flex-col">
-                    <label
-                      className=" text-lg sm:text-xl text-gray-600 font-semibold"
-                      htmlFor="lastname"
-                    >
-                      Last name
-                    </label>
-                    <div className="flex items-center">
-                      <input
-                        className="form-input"
-                        type="text"
-                        name="lastname"
-                        id="lastname"
-                        placeholder="Input your Last name...."
-                        {...register("lastName", {
-                          required: "Last Name is required",
-                        })}
-                      />
-                      <IdentificationIcon className="w-6 h-6 text-primary-200" />
-                    </div>
-                    {errors.lastName && (
-                      <p className="text-red-500 tracking-wider font-semibold italic">
-                        {errors.lastName.message}
-                      </p>
-                    )}
+                  {errors.firstName && (
+                    <p className="text-red-500 tracking-wider font-semibold italic">
+                      {errors.firstName.message}
+                    </p>
+                  )}
+                </div>
+                <div className="flex flex-col">
+                  <label
+                    className=" text-lg sm:text-xl text-gray-600 font-semibold"
+                    htmlFor="lastName"
+                  >
+                    Last name
+                  </label>
+                  <div className="flex items-center">
+                    <input
+                      className="form-input"
+                      type="text"
+                      id="lastName"
+                      placeholder="Input your Last name...."
+                      {...register("lastName", {
+                        required: "Last Name is required",
+                      })}
+                    />
+                    <IdentificationIcon className="w-6 h-6 text-primary-200" />
                   </div>
-                  <div className="flex flex-col">
-                    <label
-                      className="text-lg sm:text-xl text-gray-600 font-semibold"
-                      htmlFor="Firstname"
-                    >
-                      Email
-                    </label>
-                    <div className="flex  items-center">
-                      <input
-                        className="form-input"
-                        type="text"
-                        name="Firstname"
-                        id="Firstname"
-                        placeholder="abc@gmail.com...."
-                        {...register("email", {
-                          required: "Email is required",
-                          pattern: {
-                            value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                            message: "Email must include @",
-                          },
-                        })}
-                      />
-                      <EnvelopeIcon className="w-6 h-6 text-shadow-lg text-primary-200" />
-                    </div>
-                    {errors.email && (
-                      <p className="text-red-500 tracking-wider font-semibold italic">
-                        {errors.email.message}
-                      </p>
-                    )}
+                  {errors.lastName && (
+                    <p className="text-red-500 tracking-wider font-semibold italic">
+                      {errors.lastName.message}
+                    </p>
+                  )}
+                </div>
+                <div className="flex flex-col">
+                  <label
+                    className="text-lg sm:text-xl text-gray-600 font-semibold"
+                    htmlFor="email"
+                  >
+                    Email
+                  </label>
+                  <div className="flex  items-center">
+                    <input
+                      className="form-input"
+                      type="text"
+                      id="email"
+                      placeholder="abc@gmail.com...."
+                      {...register("email", {
+                        required: "Email is required",
+                        pattern: {
+                          value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                          message: "Email must include @",
+                        },
+                      })}
+                    />
+                    <EnvelopeIcon className="w-6 h-6 text-shadow-lg text-primary-200" />
                   </div>
-                  <div className="flex flex-col">
-                    <label
-                      className="text-lg sm:text-xl text-gray-600 font-semibold"
-                      htmlFor="dob"
-                    >
-                      Date of Birth
-                    </label>
-                    <div className="flex  items-center">
-                      <input
-                        className="form-input"
-                        type="date"
-                        name="dob"
-                        id="dob"
-                        {...register("dob", {
-                          required: "Date of Birth is required",
-                        })}
-                      />
-                      <CalendarIcon className="w-6 h-6 text-shadow-lg text-primary-200" />
-                    </div>
-                    {errors.dob && (
-                      <p className="text-red-500 tracking-wider font-semibold italic">
-                        {errors.dob.message}
-                      </p>
-                    )}
+                  {errors.email && (
+                    <p className="text-red-500 tracking-wider font-semibold italic">
+                      {errors.email.message}
+                    </p>
+                  )}
+                </div>
+                <div className="flex flex-col">
+                  <label
+                    className="text-lg sm:text-xl text-gray-600 font-semibold"
+                    htmlFor="dob"
+                  >
+                    Date of Birth
+                  </label>
+                  <div className="flex  items-center">
+                    <input
+                      className="form-input"
+                      type="date"
+                      id="dob"
+                      {...register("dob", {
+                        required: "Date of Birth is required",
+                      })}
+                    />
+                    <CalendarIcon className="w-6 h-6 text-shadow-lg text-primary-200" />
                   </div>
-                </>
-              ) : (
-                <>
-                  {/* contact and password verification */}
+                  {errors.dob && (
+                    <p className="text-red-500 tracking-wider font-semibold italic">
+                      {errors.dob.message}
+                    </p>
+                  )}
+                </div>
+              </div>
 
-                  <div className="flex flex-col">
-                    <label
-                      className="text-lg sm:text-xl text-gray-600 font-semibold"
-                      htmlFor="phone"
-                    >
-                      Phone Number
-                    </label>
-                    <div className="flex  items-center">
-                      <input
-                        className="form-input"
-                        type="tel"
-                        name="phone"
-                        id="phone"
-                        {...register("phone", {
-                          required: "Phone number is required",
-                        })}
-                      />
-                      <PhoneIcon className="w-6 h-6 text-shadow-lg text-primary-200" />
-                    </div>
-                    {errors.phone && (
-                      <p className="text-red-500 tracking-wider font-semibold italic">
-                        {errors.phone.message}
-                      </p>
-                    )}
-                  </div>
-                  <div className="flex flex-col">
-                    <label
-                      className="text-lg sm:text-xl text-gray-600 font-semibold"
-                      htmlFor="password"
-                    >
-                      Prefered Password
-                    </label>
-                    <div className="flex  items-center">
-                      <input
-                        className="form-input"
-                        type={`${showPassword ? "password" : "text"}`}
-                        name="password"
-                        id="password"
-                        //checks is password inlclude both letters and numbers
-                        {...register("password", {
-                          required: "Password is required",
-                          minLength: {
-                            value: 6,
-                            message: "Password must be at least 6 characters",
-                          },
-                          validate: {
-                            hasNumber: (value) =>
-                              /\d/.test(value) ||
-                              "Password must include a number",
-                            hasLetter: (value) =>
-                              /[a-zA-Z]/.test(value) ||
-                              "Password must include a letter",
-                          },
-                        })}
-                      />
-                      <LockClosedIcon className="w-6 h-6 text-shadow-lg text-primary-200" />
-                    </div>
-                    {errors.password && (
-                      <p className="text-red-500 tracking-wider font-semibold italic">
-                        {errors.password.message}
-                      </p>
-                    )}
-                  </div>
-                  <div className="flex flex-col">
-                    <label
-                      className="text-lg sm:text-xl text-gray-600 font-semibold"
-                      htmlFor="confirmPassword"
-                    >
-                      Confirm Password
-                    </label>
+              <div className={`${firstStep ? "hidden" : "block"}`}>
+                {/* contact and password verification */}
 
-                    <div className="flex  items-center">
-                      <input
-                        className="form-input"
-                        type={`${showPassword ? "password" : "text"}`}
-                        name="confirmPassword"
-                        id="confirmPassword"
-                        //checks if both the password and confirm password are the same
-                        {...register("confirmPassword", {
-                          required: "Confirm password is required",
-                          validate: (value) =>
-                            value === passwordValue || "Passwords do not match",
-                        })}
-                      />
-                      <LockClosedIcon className="w-6 h-6 text-shadow-lg text-primary-200" />
-                    </div>
-                    {errors.confirmPassword && (
-                      <p className="text-red-500 tracking-wider font-semibold italic">
-                        {errors.confirmPassword.message}
-                      </p>
-                    )}
+                <div className="flex flex-col">
+                  <label
+                    className="text-lg sm:text-xl text-gray-600 font-semibold"
+                    htmlFor="phone"
+                  >
+                    Phone Number
+                  </label>
+                  <div className="flex  items-center">
+                    <input
+                      className="form-input"
+                      type="tel"
+                      id="phone"
+                      {...register("phone", {
+                        required: "Phone number is required",
+                      })}
+                    />
+                    <PhoneIcon className="w-6 h-6 text-shadow-lg text-primary-200" />
                   </div>
-                </>
-              )}
+                  {errors.phone && (
+                    <p className="text-red-500 tracking-wider font-semibold italic">
+                      {errors.phone.message}
+                    </p>
+                  )}
+                </div>
+                <div className="flex flex-col">
+                  <label
+                    className="text-lg sm:text-xl text-gray-600 font-semibold"
+                    htmlFor="password"
+                  >
+                    Prefered Password
+                  </label>
+                  <div className="flex  items-center">
+                    <input
+                      className="form-input"
+                      type={`${showPassword ? "password" : "text"}`}
+                      id="password"
+                      //checks is password inlclude both letters and numbers
+                      {...register("password", {
+                        required: "Password is required",
+                        minLength: {
+                          value: 6,
+                          message: "Password must be at least 6 characters",
+                        },
+                        validate: {
+                          hasNumber: (value) =>
+                            /\d/.test(value) ||
+                            "Password must include a number",
+                          hasLetter: (value) =>
+                            /[a-zA-Z]/.test(value) ||
+                            "Password must include a letter",
+                        },
+                      })}
+                    />
+                    <LockClosedIcon className="w-6 h-6 text-shadow-lg text-primary-200" />
+                  </div>
+                  {errors.password && (
+                    <p className="text-red-500 tracking-wider font-semibold italic">
+                      {errors.password.message}
+                    </p>
+                  )}
+                </div>
+                <div className="flex flex-col">
+                  <label
+                    className="text-lg sm:text-xl text-gray-600 font-semibold"
+                    htmlFor="confirmPassword"
+                  >
+                    Confirm Password
+                  </label>
+
+                  <div className="flex  items-center">
+                    <input
+                      className="form-input"
+                      type={`${showPassword ? "password" : "text"}`}
+                      id="confirmPassword"
+                      //checks if both the password and confirm password are the same
+                      {...register("confirmPassword", {
+                        required: "Confirm password is required",
+                        validate: (value) =>
+                          value === passwordValue || "Passwords do not match",
+                      })}
+                    />
+                    <LockClosedIcon className="w-6 h-6 text-shadow-lg text-primary-200" />
+                  </div>
+                  {errors.confirmPassword && (
+                    <p className="text-red-500 tracking-wider font-semibold italic">
+                      {errors.confirmPassword.message}
+                    </p>
+                  )}
+                </div>
+              </div>
+
+              
               {!firstStep && !isLoading && (
                 <div className="flex items-center gap-2">
                   <button
@@ -405,6 +398,7 @@ const RegisterPage = () => {
                 ) : (
                   <div className="flex justify-between items-center bg-gray-200 rounded-full text-gray-600">
                     <button
+                      type="button"
                       onClick={prevStep}
                       className={` ${
                         firstStep
@@ -415,6 +409,7 @@ const RegisterPage = () => {
                       Previous
                     </button>
                     <button
+                      type="button"
                       onClick={nextStep}
                       className={` ${
                         !firstStep
