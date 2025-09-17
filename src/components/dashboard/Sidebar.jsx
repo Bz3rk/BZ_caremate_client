@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 
 const Sidebar = () => {
   return (
-    <div className=" fixed top-16 left-0">
+    <div className=" hidden sm:block fixed top-16 left-0">
         {/* Sidebar */}
         <aside className="w-56 bg-white shadow-[2px_2px_2px_0px_rgba(0,0,0,0.3)] h-[calc(100vh-4rem)] p-4 ">
           <nav className="flex flex-col gap-10 items-start pt-10 text-xl font-semibold text-gray-600">

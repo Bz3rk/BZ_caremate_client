@@ -32,7 +32,7 @@ const Topbar = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -100 }}
             transition={{ duration: 0.5 }}
-            className="absolute bg-white text-gray-600 top-11 w-48 -right-10 shadow-xl rounded-md ">
+            className="absolute bg-white text-gray-600 top-11 w-48 -right-0 sm:-right-10 shadow-xl rounded-md ">
                 <nav className="font-semibold flex flex-col gap-4 text-center p-6">
                     <NavLink className="hover:text-black duration-200 hover:scale-105">Profile</NavLink>
                     <NavLink className="hover:text-black duration-200 hover:scale-105">Log out</NavLink>
