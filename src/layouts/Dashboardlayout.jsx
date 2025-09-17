@@ -1,12 +1,18 @@
 import React from "react";
+import Topbar from "../components/dashboard/Topbar";
+import Sidebar from "../components/dashboard/Sidebar"
 import { Outlet } from "react-router-dom";
 
 const Dashboardlayout = () => {
   return (
     <div>
-      <main>
+      <Topbar/>
+      <div className="flex pt-16">
+      <Sidebar/>
+      <main className="sm:ml-52">
         <Outlet />
       </main>
+      </div>
     </div>
   );
 };
