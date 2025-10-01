@@ -14,19 +14,19 @@ const Sidebar = () => {
             </div>
             <div className='flex items-center gap-3 hover:text-primary-300 hover:scale-105 duration-200'>
             <BeakerIcon className='w-6 h-6'/>
-            <NavLink to="/dashboard">Medications</NavLink>
+            <NavLink to="/medications">Medications</NavLink>
             </div>
             <div className='flex items-center gap-3 hover:text-primary-300 hover:scale-105 duration-200'>
             <HeartIcon className='w-6 h-6'/>
-            <NavLink to="/dashboard">Health logs</NavLink>
+            <NavLink to="/vitals">Health logs</NavLink>
             </div>
             <div className='flex items-center gap-3 hover:text-primary-300 hover:scale-105 duration-200'>
             <CalendarIcon className='w-6 h-6'/>
-            <NavLink to="/dashboard">Appointment</NavLink>
+            <NavLink to="/appointment">Appointment</NavLink>
             </div>
             <div className='flex items-center gap-3 hover:text-primary-300 hover:scale-105 duration-200'>
             <UserCircleIcon className='w-6 h-6'/>
-            <NavLink to="/dashboard">Support</NavLink>
+            <NavLink to="/support">Support</NavLink>
             </div>
           </nav>
         </aside>
