@@ -9,6 +9,10 @@ import NotFoundPage from "./pages/NotFoundPage";
 import Dashboardlayout from "./layouts/Dashboardlayout";
 import useSmoothScroll from "./hooks/useSmoothScroll";
 import ScrollToTop from "./components/scrollTop";
+import MedicationsPage from "./pages/MedicationsPage";
+import VitalsPage from "./pages/VitalsPage";
+import AppointmentPage from "./pages/AppointmentPage";
+import SupportPage from "./pages/SupportPage";
 
 
 
@@ -28,6 +32,10 @@ function App() {
           </Route>
           <Route element={<Dashboardlayout />}>
             <Route path="/dashboard" element={<DashboardHomepage />} />
+            <Route path="/medications" element={<MedicationsPage />} />
+            <Route path="/vitals" element={<VitalsPage />} />
+            <Route path="/appointment" element={<AppointmentPage />} />
+            <Route path="/support" element={<SupportPage />} />
           </Route>
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

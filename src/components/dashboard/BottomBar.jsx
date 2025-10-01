@@ -15,16 +15,16 @@ const BottomBar = () => {
         <NavLink to="/dashboard">
           <Squares2X2Icon className="w-6 h-6" />
         </NavLink>
-        <NavLink to="/dashboard">
+        <NavLink to="/medications">
           <BeakerIcon className="w-6 h-6" />
         </NavLink>
-        <NavLink to="/dashboard">
+        <NavLink to="/vitals">
           <HeartIcon className="w-6 h-6" />
         </NavLink>
-        <NavLink to="/dashboard">
+        <NavLink to="/appointment">
           <CalendarIcon className="w-6 h-6" />
         </NavLink>
-        <NavLink to="/dashboard">
+        <NavLink to="/support">
           <UserCircleIcon className="w-6 h-6" />
         </NavLink>
       </nav>
