@@ -9,12 +9,12 @@ const Navbar = () => {
   return (
     <>
       <nav className=" flex flex-wrap py-4 container justify-between items-center">
-        <div className="font-bold text-xl shadow-sm uppercase text-gray-600">
+        <div className="font-bold font-Montserrat text-xl shadow-sm uppercase text-gray-600">
           <span className="font-bold text-2xl text-primary-300">BZ</span>
           -caremate
         </div>
-        <div className="hidden sm:flex justify-center items-center gap-12">
-          <div className="flex justify-around gap-6 mx-2">
+        <div className="hidden sm:flex justify-center font-OpenSans items-center gap-12">
+          <div className="flex justify-around  gap-6 mx-2">
             <NavLink className="nav-links" to="/">
               Home
             </NavLink>
@@ -30,7 +30,7 @@ const Navbar = () => {
           </div>
 
           <NavLink to="/register" className="primary-button hidden md:block">
-            Get Started{" "}
+            Get Started
           </NavLink>
         </div>
 
@@ -57,9 +57,9 @@ const Navbar = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -100 }}
               transition={{ duration: 0.5 }}
-              className="container py-6 max-w-[95%] mt-2 text-lg uppercase font-semibold text-white bg-primary-300  rounded-xl"
+              className="container py-6 max-w-[95%] mt-2 text-lg uppercase font-medium text-white bg-primary-300  rounded-xl"
             >
-              <div className="flex flex-col justify-center items-center gap-6">
+              <div className="flex font-OpenSans flex-col justify-center items-center gap-6">
                 <NavLink
                   onClick={() => setOpen((prevState) => !prevState)}
                   className="text-white"
@@ -70,7 +70,7 @@ const Navbar = () => {
                 <NavLink
                   onClick={() => setOpen((prevState) => !prevState)}
                   className="text-white"
-                  to=""
+                  to="/dashboard"
                 >
                   Caregivers
                 </NavLink>

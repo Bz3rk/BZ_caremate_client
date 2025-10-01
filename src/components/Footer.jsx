@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   DevicePhoneMobileIcon,
   ChatBubbleOvalLeftIcon,
@@ -15,14 +16,14 @@ const Footer = () => {
   
   return (
     <footer>
-      <div className="bg-gray-800 gap-8 text-gray-200 grid grid-cols-1 md:grid-cols-4 mt-6 p-10">
+      <div className="bg-gray-800 gap-8 font-OpenSans text-gray-200 grid grid-cols-1 md:grid-cols-4 mt-6 p-10">
         <motion.div
           variants={slideRight(0.4)}
           initial="hidden"
           whileInView="visible"
           viewport={{once:true, amount:0.5}}
         >
-          <h2 className="font-semibold text-2xl">BZ_CAREMATE</h2>
+          <h2 className="font-semibold text-2xl font-Montserrat">BZ_CAREMATE</h2>
           <p className="leading-tight py-4 italic">
             Smart tools and services tailored to meet everyday caregiving needs
           </p>
@@ -35,18 +36,18 @@ const Footer = () => {
           viewport={{once:true, amount:0.5}}
           className="flex flex-col gap-3"
         >
-          <div className="text-xl font-semibold">Quick Links</div>
+          <div className="text-xl font-semibold font-Montserrat">Quick Links</div>
           <div className="hover:text-white duration-300">
-            <a href="">Home</a>
+            <Link to="/" href="">Home</Link>
           </div>
           <div className="hover:text-white duration-300">
-            <a href="">About</a>
+            <Link href="">About</Link>
           </div>
           <div className="hover:text-white duration-300">
-            <a href="">Caregivers</a>
+            <Link to="/dashboard" href="">Caregivers</Link>
           </div>
           <div className="hover:text-white duration-300">
-            <a href="">Contact</a>
+            <Link href="">Contact</Link>
           </div>
         </motion.div>
 
@@ -57,27 +58,27 @@ const Footer = () => {
           viewport={{once:true, amount:0.5}}
           className="flex flex-col gap-3"
         >
-          <div className="text-xl font-semibold">Socials</div>
+          <div className="text-xl font-semibold font-Montserrat">Socials</div>
           <div className="">
-            <a className="flex items-center gap-2 pb-2">
+            <Link className="flex items-center gap-2 pb-2">
               <UserGroupIcon className="w-8 h-8" />
               Linkedin
-            </a>
-            <a className="flex items-center gap-2 pb-2">
+            </Link>
+            <Link className="flex items-center gap-2 pb-2">
               <ChatBubbleOvalLeftIcon className="w-8 h-8" />
               Whatsapp
-            </a>
-            <a className="flex items-center gap-2 pb-2">
+            </Link>
+            <Link className="flex items-center gap-2 pb-2">
               <GlobeAltIcon className="w-8 h-8" />X
-            </a>
-            <a className="flex items-center gap-2 pb-2">
+            </Link>
+            <p className="flex items-center gap-2 pb-2">
               <DevicePhoneMobileIcon className="w-8 h-8" />
               +2349069263478
-            </a>
-            <a className=" flex items-center gap-2 pb-2" href="">
+            </p>
+            <Link className=" flex items-center gap-2 pb-2" href="">
               <EnvelopeIcon className="w-8 h-8" />
               Botzerk@gmail.com
-            </a>
+            </Link>
           </div>
         </motion.div>
 
@@ -88,12 +89,12 @@ const Footer = () => {
           viewport={{once:true, amount:0.5}}
           className="pt-4"
         >
-          <p className="text-xl py-2 mb-4 italic">
+          <p className="text-xl font-Montserrat py-2 mb-4 italic">
             Get certified to become a Caregiver with Caremate
           </p>
-          <a className="primary-button" href="mailto">
+          <Link className="primary-button" href="mailto">
             Apply here
-          </a>
+          </Link>
         </motion.div>
       </div>
     </footer>

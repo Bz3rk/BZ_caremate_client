@@ -9,7 +9,7 @@ import Offer from '../components/Offer'
 
 const HomePage = () => {
   return (
-    <>
+    <>  
   <Hero/>
   <About/>
   <Services/>

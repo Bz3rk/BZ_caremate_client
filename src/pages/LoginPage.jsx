@@ -27,11 +27,11 @@ const LoginPage = () => {
 
   return (
     <div className="container">
-      <div className=" text-4xl text-center font-semibold italic text-primary-300 pb-8">
+      <div className=" text-4xl text-center font-Montserrat font-semibold italic text-primary-300 pb-8">
         Sign In
       </div>
       <div className="max-w-[860px] min-h-[350px] mx-auto shadow-[0px_3px_8px_rgba(0,0,0,0.30)] p-4 ">
-        <form onSubmit={handleSubmit(handleSignIn)} className="space-y-6">
+        <form onSubmit={handleSubmit(handleSignIn)} className="space-y-6 font-OpenSans">
           <div className="flex flex-col">
             <label
               className="text-lg sm:text-xl text-gray-600 font-semibold"
@@ -153,7 +153,7 @@ const LoginPage = () => {
                 Don't have an account
                 <Link
                   to={"/register"}
-                  className="bg-gray-300 p-[6px] px-2 mx-2 italic rounded-full hover:bg-primary-300 hover:text-white duration-700"
+                  className="bg-gray-300 text-gray-600 p-[6px] px-2 mx-2 italic rounded-full hover:bg-primary-300 hover:text-white duration-700"
                 >
                   Sign up
                 </Link>

@@ -16,7 +16,7 @@ const Offer = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{once:true, amount:0.5}}
-        className="text-3xl text-center text-primary-300 font-bold italic py-4"
+        className="text-3xl font-Montserrat text-center text-primary-300 font-bold italic py-4"
       >
         What We Offer
       </motion.div>
@@ -30,11 +30,11 @@ const Offer = () => {
           className="px-8 py-28"
         >
           <ClipboardDocumentListIcon className="w-16 h-16" />
-          <div className="text-3xl py-4">Medication Tracking</div>
-          <p className="text-lg">Stay on top of prescriptions and reminders.</p>
+          <div className="text-3xl py-4 font-Montserrat">Medication Tracking</div>
+          <p className="text-lg font-semibold font-OpenSans">Stay on top of prescriptions and reminders.</p>
         </motion.div>
 
-        <div className="bg-primary-200 w-full px-8 py-24">
+        <div className="bg-primary-200 w-full px-8 py-28">
           <motion.div
             variants={slideUp(0.8)}
             initial="hidden"
@@ -42,8 +42,8 @@ const Offer = () => {
             viewport={{once:true, amount:0.5}}
           >
             <DocumentTextIcon className="w-16 h-16" />
-            <div className="text-3xl text-white py-4">Health Logging</div>
-            <p className="text-lg ">
+            <div className="text-3xl text-white py-4 font-Montserrat">Health Logging</div>
+            <p className="text-lg font-semibold font-OpenSans ">
               Record vitals, symptoms, and progress daily.
             </p>
           </motion.div>
@@ -57,8 +57,8 @@ const Offer = () => {
           className="px-8 py-28"
         >
           <UserGroupIcon className="w-16 h-16" />
-          <div className="text-3xl text-white py-4">Caregiver Support</div>
-          <p className="">
+          <div className="text-3xl text-white py-4 font-Montserrat">Caregiver Support</div>
+          <p className="text-lg font-semibold font-OpenSans">
             Tools that connect families and professional caregivers.
           </p>
         </motion.div>

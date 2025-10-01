@@ -1,6 +1,7 @@
 import React from "react";
 import Topbar from "../components/dashboard/Topbar";
 import Sidebar from "../components/dashboard/Sidebar"
+import BottomBar from "../components/dashboard/BottomBar";
 import { Outlet } from "react-router-dom";
 
 const Dashboardlayout = () => {
@@ -9,7 +10,8 @@ const Dashboardlayout = () => {
       <Topbar/>
       <div className="flex pt-16">
       <Sidebar/>
-      <main className="sm:ml-52">
+      <BottomBar />
+      <main className="flex-grow lg:ml-40 mb-12 md:mb-2">
         <Outlet />
       </main>
       </div>

@@ -20,7 +20,7 @@ const Hero = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{once:true, amount:0.5}}
-             className="text-4xl md:text-5xl font-bold text-white leading-tight text-shadow-md">
+             className="text-4xl font-Montserrat md:text-5xl font-semibold text-white leading-tight text-shadow-md">
               Smarter Care, <span className="text-primary-400 ">Better Health</span>
             </motion.h1>
             <motion.p
@@ -29,7 +29,7 @@ const Hero = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{once:true, amount:0.5}}
-            className="text-gray-200 text-xl text-start">
+            className="text-gray-200 font-OpenSans text-lg text-start">
               Empowering caregivers and elderly loved ones with smart tools for
               daily health tracking and care management.
             </motion.p>

@@ -1,7 +1,7 @@
 import React from "react";
 import AboutImg from "../assets/about.png"
 import { slideUp, slideDown, slideRight, slideLeft } from "../utility/animation";
-import {motion, } from "framer-motion"
+import {motion} from "framer-motion"
 
 
 const About = () => {
@@ -14,11 +14,11 @@ const About = () => {
       initial="hidden"
       whileInView="visible"
       viewport={{once:true, amount:0.5}}
-      className="container italic text-center text-3xl font-bold text-primary-300">
+      className="container font-Montserrat italic text-center text-3xl font-bold text-primary-300">
         Who We Are
       </motion.h2>
-      <div className="container grid grid-cols-1 md:grid-cols-2 pt-6 gap-6">
-        <div className="text-xl text-gray-600 text-justify">
+      <div className="container font-OpenSans font-medium grid grid-cols-1 md:grid-cols-2 pt-2 sm:pt-6 gap-6">
+        <div className="text-base text-gray-600 text-justify">
       <motion.p
       
       variants={slideRight(0.6)}

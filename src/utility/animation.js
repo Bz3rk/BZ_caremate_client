@@ -1,4 +1,3 @@
-import { easeInOut } from "framer-motion";
 
 export const slideUp = (delay) => {
   return {
@@ -10,7 +9,7 @@ export const slideUp = (delay) => {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 1,
+        duration: 0.8,
         delay: delay,
         ease: "easeInOut",
       },
@@ -27,7 +26,7 @@ export const slideDown = (delay) => {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 1,
+        duration: 0.8,
         delay: delay,
         ease: "easeInOut",
       },
@@ -44,7 +43,7 @@ export const slideRight = (delay) => {
       opacity: 1,
       x: 0,
       transition: {
-        duration: 1,
+        duration: 0.8,
         delay: delay,
         ease: "easeInOut",
       },
@@ -61,7 +60,7 @@ export const slideLeft = (delay) => {
       opacity: 1,
       x: 0,
       transition: {
-        duration: 1,
+        duration: 0.8,
         delay: delay,
         ease: "easeInOut",
       },

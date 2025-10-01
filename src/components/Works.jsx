@@ -14,7 +14,7 @@ import {
   slideDown,
   slideLeft,
 } from "../utility/animation";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 const Works = () => {
 
@@ -30,13 +30,13 @@ const Works = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{once:true, amount:0.5}}
-        className="text-3xl text-center text-primary-300 font-bold italic"
+        className="text-3xl font-Montserrat text-center text-primary-300 font-bold italic"
       >
         How Caremate Works
       </motion.div>
 
       {/* Works slider  */}
-      <div className="container w-full flex flex-col justify-center items-center py-6 ">
+      <div className="container font-OpenSans w-full flex flex-col justify-center items-center py-6 ">
         {/* Top bar for the slider */}
         <motion.div
           variants={slideUp(0.6)}
@@ -86,10 +86,10 @@ const Works = () => {
             className="flex flex-col justify-center items-center"
           >
             <Icon className="w-12 h-12 text-primary-200" />
-            <h3 className="text-2xl font-semibold text-primary-200 mb-3">
+            <h3 className="text-2xl font-Montserrat font-semibold text-primary-200 mb-3">
               {activeStep.title}
             </h3>
-            <p className="text-gray-600 text-center sm:text-xl">
+            <p className="text-gray-600 text-center sm:text-xl font-medium">
               {activeStep.description}
             </p>
           </motion.div>
