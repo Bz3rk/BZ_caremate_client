@@ -43,7 +43,7 @@ const MedicationsChart = () => {
   ];
 
   return (
-    <div className="max-w-[700px] min-w-[350px]  h-[350px] shadow-[2px_2px_2px_0px_rgba(0,0,0,0.3)] lg:col-span-2">
+    <div className="max-w-[700px] min-w-[340px]  h-[350px] shadow-card lg:col-span-2">
       <div className="flex items-center justify-between rounded-t-md bg-primary-300 text-white p-2">
         <div className=" text-lg font-semibold uppercase bg-primary-300 rounded-t-md text-white font-Montserrat">
           Medications Chart
@@ -51,7 +51,7 @@ const MedicationsChart = () => {
         <ChartPieIcon className="w-8 h-8" />
       </div>
 
-      <ResponsiveContainer width="100%" height="100%" className="pb-14 py-2">
+      <ResponsiveContainer width="100%" height="100%" className="pb-12 py-2">
         <PieChart>
           <Pie data={data} outerRadius={120} dataKey="value"        labelLine={false}
         label={renderCustomizedLabel}>

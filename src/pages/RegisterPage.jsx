@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 import confetti from "canvas-confetti";
 import DotLoader from "../components/DotLoader";
 import { useForm } from "react-hook-form";
+import {  motion } from "framer-motion";
 
 const RegisterPage = () => {
   const [firstStep, setFirstStep] = useState(true);
@@ -115,7 +116,7 @@ const RegisterPage = () => {
           </div>
         </div>
       </div>
-      <div className="max-w-[860px] min-h-[500px] mx-auto shadow-[0px_3px_8px_rgba(0,0,0,0.30)] p-4 ">
+      <div className="max-w-[860px] min-h-[500px] mx-auto shadow-card p-4 ">
         {signedUp ? (
           <div className="flex flex-col justify-center items-center gap-2 py-16">
             <CheckCircleIcon className="w-20 h-20 sm:w-28 sm:h-28 md:w-36 md:h-36 text-green-700" />
@@ -397,7 +398,7 @@ const RegisterPage = () => {
                   <DotLoader />
                 ) : (
                   <div className="flex justify-between items-center bg-gray-200 rounded-full text-gray-600">
-                    <button
+                    <motion.button
                       type="button"
                       onClick={prevStep}
                       className={` ${
@@ -405,10 +406,11 @@ const RegisterPage = () => {
                           ? "bg-primary-300 p-2 px-4 rounded-full text-white"
                           : "p-2 px-4 "
                       } duration-700`}
+                      whileTap={{ scale: 0.95 }}
                     >
                       Previous
-                    </button>
-                    <button
+                    </motion.button>
+                    <motion.button
                       type="button"
                       onClick={nextStep}
                       className={` ${
@@ -416,21 +418,23 @@ const RegisterPage = () => {
                           ? "bg-primary-300 p-2 px-4 rounded-full text-white"
                           : "p-2 px-4 "
                       } duration-700`}
+                      whileTap={{ scale: 0.95 }}
                     >
                       Next
-                    </button>
+                    </motion.button>
                   </div>
                 )}
                 {!firstStep && (
-                  <button
-                    type="submit"
+                  <motion.button
+                  type="submit"
                     disabled={isLoading}
                     className={` ${
                       isLoading ? "secondary-button" : "primary-button"
                     } w-full sm:w-auto`}
+                    whileTap={!isLoading ? { scale: 0.95, rotate: -1 } : {}}
                   >
                     Sign up
-                  </button>
+                  </motion.button>
                 )}
               </div>
               {firstStep && (

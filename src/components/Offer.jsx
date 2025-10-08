@@ -5,14 +5,17 @@ import {
   UserGroupIcon,
 } from "@heroicons/react/24/solid";
 
-import { slideUp, slideDown } from "../utility/animation";
+import { slideDown,staggerContainerVariants, childSlideUp } from "../utility/animation";
 import { motion } from "framer-motion";
+
+
+
 
 const Offer = () => {
   return (
     <section className="py-6">
       <motion.div
-        variants={slideDown(0.4)}
+        variants={slideDown(0.2)}
         initial="hidden"
         whileInView="visible"
         viewport={{once:true, amount:0.5}}
@@ -21,12 +24,14 @@ const Offer = () => {
         What We Offer
       </motion.div>
 
-      <div className="bg-primary-100 grid grid-cols-1 md:grid-cols-3 md:px-10 text-white">
+      <motion.div 
+      variants={staggerContainerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
+      className="bg-primary-100 grid grid-cols-1 md:grid-cols-3 md:px-10 text-white">
         <motion.div
-          variants={slideUp(0.6)}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{once:true, amount:0.5}}
+          variants={childSlideUp}
           className="px-8 py-28"
         >
           <ClipboardDocumentListIcon className="w-16 h-16" />
@@ -36,10 +41,7 @@ const Offer = () => {
 
         <div className="bg-primary-200 w-full px-8 py-28">
           <motion.div
-            variants={slideUp(0.8)}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{once:true, amount:0.5}}
+            variants={childSlideUp}
           >
             <DocumentTextIcon className="w-16 h-16" />
             <div className="text-3xl text-white py-4 font-Montserrat">Health Logging</div>
@@ -50,10 +52,7 @@ const Offer = () => {
         </div>
 
         <motion.div
-          variants={slideUp(1.0)}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{once:true, amount:0.5}}
+          variants={childSlideUp}
           className="px-8 py-28"
         >
           <UserGroupIcon className="w-16 h-16" />
@@ -62,7 +61,7 @@ const Offer = () => {
             Tools that connect families and professional caregivers.
           </p>
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   );
 };

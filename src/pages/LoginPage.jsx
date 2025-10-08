@@ -4,6 +4,7 @@ import { EnvelopeIcon, LockClosedIcon } from "@heroicons/react/24/solid";
 import { Link } from "react-router-dom";
 import DotLoader from "../components/DotLoader";
 import { useForm } from "react-hook-form";
+import { motion } from "framer-motion";
 
 const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(true);
@@ -162,7 +163,7 @@ const LoginPage = () => {
           )}
 
           <center>
-            <button
+            <motion.button
               type="submit"
               disabled={isLoading}
               className={` ${
@@ -170,9 +171,10 @@ const LoginPage = () => {
                   ? "secondary-button  cursor-not-allowed"
                   : "primary-button  "
               } w-full sm:w-auto my-6 font-semibold `}
+              whileTap={{ scale: 0.95 }}
             >
               Sign in
-            </button>
+            </motion.button>
           </center>
         </form>
       </div>

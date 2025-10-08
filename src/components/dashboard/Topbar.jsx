@@ -12,7 +12,7 @@ const Topbar = () => {
   return (
     <div className="fixed top-0 left-0 w-full h-16 z-50 bg-primary-200">
       <div className="container flex justify-between items-center py-4 text-white">
-        <Link to="/" className=" font-semibold font-Montserrat tracking-wider text-3xl">
+        <Link to="/" className=" font-semibold font-Montserrat tracking-wider text-2xl md:text-3xl">
           Bz-caremate
         </Link>
         <div className="flex justify-center items-center gap-2 ">

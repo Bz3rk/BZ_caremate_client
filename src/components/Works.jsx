@@ -75,7 +75,7 @@ const Works = () => {
 
         {/* Description panel  */}
 
-        <div className=" bg-gray-100 w-[80%] md:w-[70%] border-2 border-primary-200 my-2 rounded-2xl shadow-lg p-8 mx-auto ">
+        <div className=" bg-gray-100 w-[90%] md:w-[70%] border-2 border-primary-200 my-2 rounded-2xl shadow-lg p-8 mx-auto ">
           
           <motion.div
             variants={slideLeft(0.4)}

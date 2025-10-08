@@ -21,7 +21,7 @@ function App() {
   const location = useLocation();
   
   return (
-      <AnimatePresence mode="wait">
+      <AnimatePresence >
         <ScrollToTop/>
         <Routes location={location} key={location.key}>
           {/* Public pages routes */}
