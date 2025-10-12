@@ -15,26 +15,23 @@ const Services = () => {
     offset: ["start end", "end start"],
   });
   const h2Y = useTransform(scrollYProgress, [0.8, 1], [0, -100]);
-  
-  const radialSize = useTransform(
-    scrollYProgress, 
-    [0, 1], 
-    ["10%", "150%"]
-);
 
-const background = useTransform(radialSize, (size) => {
+  const radialSize = useTransform(scrollYProgress, [0, 1], ["10%", "150%"]);
+
+  const background = useTransform(radialSize, (size) => {
     return `radial-gradient(circle at 50% 50%, #006494 ${size}, #003554)`;
-});
-
-
-
+  });
 
   return (
-    <motion.section ref={ref} style={{background}} className="relative py-16 ">
+    <motion.section
+      ref={ref}
+      style={{ background }}
+      className="relative py-16 "
+    >
       <div className=" container relative">
         <motion.h2
           style={{ y: h2Y }}
-          className=" sticky top-[120px] font-Montserrat italic text-center text-3xl font-bold text-white"
+          className=" sticky top-[120px] font-Montserrat italic text-center text-3xl font-bold text-gray-200"
         >
           Why CareMate?
         </motion.h2>

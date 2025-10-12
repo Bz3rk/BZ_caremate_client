@@ -43,7 +43,7 @@ const MedicationsChart = () => {
   ];
 
   return (
-    <div className="max-w-[700px] min-w-[340px]  h-[350px] shadow-card lg:col-span-2">
+    <div className="max-w-[700px] min-w-[340px]  h-[350px] shadow-card lg:col-span-2 dark:border-[1px">
       <div className="flex items-center justify-between rounded-t-md bg-primary-300 text-white p-2">
         <div className=" text-lg font-semibold uppercase bg-primary-300 rounded-t-md text-white font-Montserrat">
           Medications Chart

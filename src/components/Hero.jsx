@@ -17,8 +17,6 @@ const Hero = ({ scrollYProgress }) => {
   const heroText = "Smarter Care, Better Health";
   const words = heroText.split(" ");
 
-  console.log(words);
-
   const navigate = useNavigate();
   return (
     <>

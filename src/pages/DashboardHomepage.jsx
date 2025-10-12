@@ -4,14 +4,17 @@ import MedicationsChart from "../components/dashboard/MedicationsChart";
 import VitalsCards from "../components/dashboard/VitalsCards";
 import VitalsChart from "../components/dashboard/VitalsChart";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
+import { useAuth } from "../context/AuthContext";
 
 const DashboardHomepage = () => {
+
+  const {user} = useAuth()
   return (
     <section className="container pt-8">
-      <p className=" text-2xl sm:text-3xl  tracking-wider font-semibold italic text-gray-700">
-        Hey there,<span className="not-italic pl-2">Julia!</span>
+      <p className=" text-2xl sm:text-3xl  tracking-wider font-semibold italic text-gray-700 dark:text-gray-100">
+        Hey there,<span className="not-italic pl-2">{user && user.first_name}!</span>
       </p>
-      <p className="text-gray-600 font-semibold pt-2">
+      <p className="text-gray-600 dark:text-gray-300 font-semibold pt-2">
         Hope you're feeling good today
       </p>
       <div className="flex gap-4 lg:gap-14 flex-wrap">
@@ -21,8 +24,8 @@ const DashboardHomepage = () => {
               <p className="font-Montserrat">Total meds</p>
               <ChevronDownIcon className="w-5 h-5" />
             </div>
-            <p className="italic text-center pt-4 p-2">Total meds for today... </p>
-            <p className="text-center text-2xl pb-6 pt-2">12</p>
+            <p className="italic text-center pt-4 p-2 dark:text-gray-300">Total meds for today... </p>
+            <p className="text-center text-2xl pb-6 pt-2 dark:text-gray-300">12</p>
           </div>
         </div>
 

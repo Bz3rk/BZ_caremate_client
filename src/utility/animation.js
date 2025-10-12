@@ -204,3 +204,24 @@ export const menuLinkVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
 };
+
+
+
+export const pageTransitionVariants = {
+  hidden: {
+   width: 0
+  },
+  visible: {
+   width: "100%",
+    transition: {
+      type: "spring",
+      stiffness: 700,
+      damping: 30,
+      
+    },
+  },
+  exit : {
+    width: 0,
+    opacity:0,
+  }
+};

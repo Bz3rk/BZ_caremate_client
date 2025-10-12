@@ -13,7 +13,7 @@ const Action = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.5 }}
-        className="py-4 font-Montserrat italic text-center text-3xl font-bold text-primary-300"
+        className="py-4 font-Montserrat italic text-center text-3xl font-bold dark:text-primary-200 text-primary-300"
       >
         Start Caring Smarter Today
       </motion.h1>
@@ -24,7 +24,7 @@ const Action = () => {
         viewport={{ once: true, amount: 0.5 }}
         className="text-center"
       >
-        <p className="m-2 font-OpenSans font-medium sm:text-xl text-gray-600">
+        <p className="m-2 font-OpenSans font-medium sm:text-xl text-gray-600 dark:text-gray-300">
           Join thousands of families and caregivers who trust CareMate for
           better health and peace of mind
         </p>

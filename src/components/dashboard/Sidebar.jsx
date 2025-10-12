@@ -9,20 +9,20 @@ import {
 import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
-  const navActiveClass ="text-primary-300 scale-105 border-l-4 border-primary-300 rounded-sm pl-2 ";
+  const navActiveClass ="dark:text-white  text-primary-300 scale-105 border-l-4 border-primary-300 dark:border-white rounded-sm pl-2 ";
   const navPendingClass = "text-gray-600 cursor-wait";
 
   const navLink = ({ isActive, isPending }) =>
-    `flex items-center gap-3 hover:text-primary-300 hover:scale-105 duration-300 ease-in-out   
+    `flex items-center gap-3 hover:text-primary-300 dark:hover:text-white hover:scale-105  duration-300 ease-in-out   
 ${isActive && navActiveClass}
 ${isPending && navPendingClass}`;
 
   return (
     <div className=" hidden lg:block fixed top-16 left-0">
       {/* Sidebar */}
-      <aside className="w-48 bg-white shadow-card h-[calc(100vh-4rem)] p-4 ">
-        <nav className="flex flex-col gap-10 items-start pt-10 text-base font-medium text-gray-600">
-          <NavLink to="/dashboard" className={navLink}>
+      <aside className="w-48 bg-white dark:bg-gray-800 shadow-card h-[calc(100vh-4rem)] p-4 ">
+        <nav className="flex flex-col gap-10 items-start pt-10 text-base font-medium text-gray-600 dark:text-gray-300 ">
+          <NavLink to="/user/dashboard" className={navLink}>
             <Squares2X2Icon className="w-6 h-6" />
             <span>Dashboard</span>
           </NavLink>

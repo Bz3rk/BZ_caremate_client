@@ -6,7 +6,8 @@ import Action from "../components/Action";
 
 import Works from "../components/Works";
 import Offer from "../components/Offer";
-import { useScroll } from "framer-motion";
+import { useScroll, motion } from "framer-motion";
+import { pageTransitionVariants } from "../utility/animation";
 
 const HomePage = () => {
   const ref = useRef(null);
@@ -15,7 +16,12 @@ const HomePage = () => {
     offset: ["start start", "center center"],
   });
   return (
-    <>
+    <motion.section
+      variants={pageTransitionVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+    >
       <div ref={ref} className="relative h-[200vh] overflow-hidden">
         <Hero scrollYProgress={scrollYProgress} />
         <div className="absolute top-[100vh]">
@@ -26,7 +32,7 @@ const HomePage = () => {
       <Offer />
       <Works />
       <Action />
-    </>
+    </motion.section>
   );
 };
 

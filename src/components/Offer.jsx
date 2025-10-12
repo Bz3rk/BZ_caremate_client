@@ -19,7 +19,7 @@ const Offer = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{once:true, amount:0.5}}
-        className="text-3xl font-Montserrat text-center text-primary-300 font-bold italic py-4"
+        className="text-3xl font-Montserrat text-center text-primary-300 dark:text-primary-200 font-bold italic py-8 pt-20"
       >
         What We Offer
       </motion.div>

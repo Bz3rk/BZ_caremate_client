@@ -1,14 +1,19 @@
 import React, { useState } from "react";
 
 import { EnvelopeIcon, LockClosedIcon } from "@heroicons/react/24/solid";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import DotLoader from "../components/DotLoader";
 import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
+import { pageTransitionVariants } from "../utility/animation";
+import { useAuth } from "../context/AuthContext";
 
 const LoginPage = () => {
+  const navigate = useNavigate();
+
   const [showPassword, setShowPassword] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
+  const { login } = useAuth();
 
   const {
     register,
@@ -18,21 +23,39 @@ const LoginPage = () => {
     mode: "onChange",
   });
 
-  const handleSignIn = (data) => {
-    console.log("Form submitted", data);
+  const handleSignIn = async (credentials, e) => {
+    e.preventDefault();
+    console.log("Form submitted", credentials);
     setIsLoading(true);
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 3000);
+
+    const success = await login(credentials);
+    setIsLoading(false);
+
+    if (success) {
+      const storedUser = JSON.parse(localStorage.getItem("user"));
+      if (storedUser?.is_caregiver) {
+        navigate("/caregiver/dashboard");
+      } else {
+        navigate("/user/dashboard");
+      }
+    }
   };
 
   return (
-    <div className="container">
-      <div className=" text-4xl text-center font-Montserrat font-semibold italic text-primary-300 pb-8">
+    <motion.section 
+    variants={pageTransitionVariants}
+    initial = "hidden"
+    animate = "visible"
+    exit= "exit"
+    className="container">
+      <div className=" text-4xl text-center font-Montserrat font-semibold italic text-primary-300 dark:text-primary-200  py-8">
         Sign In
       </div>
-      <div className="max-w-[860px] min-h-[350px] mx-auto shadow-[0px_3px_8px_rgba(0,0,0,0.30)] p-4 ">
-        <form onSubmit={handleSubmit(handleSignIn)} className="space-y-6 font-OpenSans">
+      <div className="max-w-[860px] min-h-[350px] mx-auto shadow-card dark:bg-gray-200 p-4 rounded-lg ">
+        <form
+          onSubmit={handleSubmit(handleSignIn)}
+          className="space-y-6 font-OpenSans"
+        >
           <div className="flex flex-col">
             <label
               className="text-lg sm:text-xl text-gray-600 font-semibold"
@@ -178,7 +201,7 @@ const LoginPage = () => {
           </center>
         </form>
       </div>
-    </div>
+    </motion.section>
   );
 };
 
