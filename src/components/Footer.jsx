@@ -9,42 +9,51 @@ import {
 } from "@heroicons/react/24/solid";
 import { motion } from "framer-motion";
 
-import { slideRight } from "../utility/animation";
+import {
+  footerChildVariants,
+  footerContainerVariants,
+} from "../utility/animation";
+
+
 
 const Footer = () => {
-
-  
   return (
-    <footer>
-      <div className="bg-gray-800 gap-8 font-OpenSans text-gray-200 grid grid-cols-1 md:grid-cols-4 mt-6 p-10">
-        <motion.div
-          variants={slideRight(0.4)}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{once:true, amount:0.5}}
-        >
-          <h2 className="font-semibold text-2xl font-Montserrat">BZ_CAREMATE</h2>
+    <footer >
+      <motion.div
+        variants={footerContainerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        className="bg-gray-800 gap-8 font-OpenSans text-gray-200 grid grid-cols-1 md:grid-cols-4 mt-6 p-10"
+      >
+        <motion.div variants={footerChildVariants}>
+          <h2 className="font-semibold text-2xl font-Montserrat">
+            BZ_CAREMATE
+          </h2>
           <p className="leading-tight py-4 italic">
             Smart tools and services tailored to meet everyday caregiving needs
           </p>
         </motion.div>
 
         <motion.div
-          variants={slideRight(0.6)}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{once:true, amount:0.5}}
+          variants={footerChildVariants}
           className="flex flex-col gap-3"
         >
-          <div className="text-xl font-semibold font-Montserrat">Quick Links</div>
+          <div className="text-xl font-semibold font-Montserrat">
+            Quick Links
+          </div>
           <div className="hover:text-white duration-300">
-            <Link to="/" href="">Home</Link>
+            <Link to="/" href="">
+              Home
+            </Link>
           </div>
           <div className="hover:text-white duration-300">
             <Link href="">About</Link>
           </div>
           <div className="hover:text-white duration-300">
-            <Link to="/dashboard" href="">Caregivers</Link>
+            <Link to="/dashboard" href="">
+              Caregivers
+            </Link>
           </div>
           <div className="hover:text-white duration-300">
             <Link href="">Contact</Link>
@@ -52,10 +61,7 @@ const Footer = () => {
         </motion.div>
 
         <motion.div
-          variants={slideRight(0.8)}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{once:true, amount:0.5}}
+          variants={footerChildVariants}
           className="flex flex-col gap-3"
         >
           <div className="text-xl font-semibold font-Montserrat">Socials</div>
@@ -82,13 +88,7 @@ const Footer = () => {
           </div>
         </motion.div>
 
-        <motion.div
-          variants={slideRight(1.0)}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{once:true, amount:0.5}}
-          className="pt-4"
-        >
+        <motion.div variants={footerChildVariants} className="pt-4">
           <p className="text-xl font-Montserrat py-2 mb-4 italic">
             Get certified to become a Caregiver with Caremate
           </p>
@@ -96,7 +96,7 @@ const Footer = () => {
             Apply here
           </Link>
         </motion.div>
-      </div>
+      </motion.div>
     </footer>
   );
 };

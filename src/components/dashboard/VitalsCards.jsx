@@ -12,7 +12,7 @@ import {
 
 const VitalsCards = () => {
   return (
-    <div className="bg-white ml-2 overflow-y-auto mt-4 text-gray-600 shadow-[2px_2px_2px_0px_rgba(0,0,0,0.3)]">
+    <div className="bg-white ml-2 overflow-y-auto mt-4 text-gray-600 shadow-card">
         <div className="flex items-center justify-between rounded-t-md bg-primary-300 text-white p-2 gap-24">
         <p className=" text-lg sm:text-xl  font-Montserrat font-semibold uppercase">
           Recent Vitals

@@ -12,6 +12,11 @@ import { Link } from "react-router-dom";
 import confetti from "canvas-confetti";
 import DotLoader from "../components/DotLoader";
 import { useForm } from "react-hook-form";
+import { motion } from "framer-motion";
+import { pageTransitionVariants } from "../utility/animation";
+import axios from "axios";
+import { BASE_URL } from "../utility/constant";
+import toast from "react-hot-toast";
 
 const RegisterPage = () => {
   const [firstStep, setFirstStep] = useState(true);
@@ -30,13 +35,13 @@ const RegisterPage = () => {
     mode: "onChange",
     shouldUnregister: false,
     defaultValues: {
-      firstName: "",
-      lastName: "",
+      first_name: "",
+      last_name: "",
       email: "",
-      phone: "",
+      phone_number: "",
       dob: "",
       password: "",
-      confirmPassword: "",
+      confirm_password: "",
     },
   });
 
@@ -44,7 +49,7 @@ const RegisterPage = () => {
 
   //step funtion
   const nextStep = async () => {
-    const isValid = await trigger(["firstName", "lastName", "email", "dob"]);
+    const isValid = await trigger(["first_name", "last_name", "email", "dob"]);
 
     if (isValid) setFirstStep(false);
   };
@@ -52,15 +57,9 @@ const RegisterPage = () => {
   //step function
   const prevStep = () => setFirstStep(true);
 
-  const onSubmit = (data) => {
+  const handleSignUp = async (credentials, e) => {
+    e.preventDefault();
     setIsLoading(true);
-    setTimeout(() => {
-      setIsLoading(false);
-      setSignedUp(true);
-      fireConfetti();
-    }, 3000);
-
-    console.log("form submitted", data);
 
     {
       /* confetti animation upon sign up */
@@ -86,11 +85,37 @@ const RegisterPage = () => {
         });
       }, 400);
     };
+
+    try {
+      const response = await axios.post(
+        `${BASE_URL}/user-registration/`,
+        credentials,
+        { headers: { "Content-Type": "application/json" } }
+      );
+      setSignedUp(true);
+      fireConfetti();
+    } catch (error) {
+      if (error.response) {
+        const errorMessage =
+          error.response.data.Errors?.email ||
+          "Registration failed due to a server error.";
+        toast.error(errorMessage);
+      } else {
+        toast.error("Connection refused: Could not connect to the server.");
+      }
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
-    <div className="container">
-      <div className=" text-4xl text-center font-semibold italic text-primary-300 pb-8">
+    <motion.section 
+    variants={pageTransitionVariants}
+    initial = "hidden"
+    animate = "visible"
+    exit= "exit"
+    className="container">
+      <div className=" text-4xl text-center font-semibold italic text-primary-300 dark:text-primary-200 py-8">
         Register
       </div>
       {/* Progress slider */}
@@ -108,14 +133,14 @@ const RegisterPage = () => {
         <div>
           <div
             className={`w-8 h-8 rounded-full border-2 border-primary-200 ${
-              firstStep ? "text-gray-600" : "bg-primary-200 text-white"
+              firstStep ? "text-gray-600 dark:text-gray-300" : "bg-primary-200 text-white"
             } duration-700 text-xl flex justify-center items-center`}
           >
             2
           </div>
         </div>
       </div>
-      <div className="max-w-[860px] min-h-[500px] mx-auto shadow-[0px_3px_8px_rgba(0,0,0,0.30)] p-4 ">
+      <div className="max-w-[860px] min-h-[500px] mx-auto shadow-card p-4 dark:bg-gray-100 rounded-lg">
         {signedUp ? (
           <div className="flex flex-col justify-center items-center gap-2 py-16">
             <CheckCircleIcon className="w-20 h-20 sm:w-28 sm:h-28 md:w-36 md:h-36 text-green-700" />
@@ -137,12 +162,12 @@ const RegisterPage = () => {
           </div>
         ) : (
           <>
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+            <form onSubmit={handleSubmit(handleSignUp)} className="space-y-6">
               <div className={`${firstStep ? "block" : "hidden"}`}>
                 {/* Names and Identification section ( step ) */}
                 <div className="flex flex-col ">
                   <label
-                    htmlFor="firstName"
+                    htmlFor="first_Name"
                     className="text-lg sm:text-xl text-gray-600 font-semibold "
                   >
                     First name
@@ -152,24 +177,24 @@ const RegisterPage = () => {
                     <input
                       className="form-input"
                       type="text"
-                      id="firstName"
+                      id="first_name"
                       placeholder="Input your First name...."
-                      {...register("firstName", {
+                      {...register("first_name", {
                         required: "First Name is required",
                       })}
                     />
                     <IdentificationIcon className="w-6 h-6 text-shadow-lg text-primary-200" />
                   </div>
-                  {errors.firstName && (
+                  {errors.first_name && (
                     <p className="text-red-500 tracking-wider font-semibold italic">
-                      {errors.firstName.message}
+                      {errors.first_name.message}
                     </p>
                   )}
                 </div>
                 <div className="flex flex-col">
                   <label
                     className=" text-lg sm:text-xl text-gray-600 font-semibold"
-                    htmlFor="lastName"
+                    htmlFor="last_name"
                   >
                     Last name
                   </label>
@@ -177,17 +202,17 @@ const RegisterPage = () => {
                     <input
                       className="form-input"
                       type="text"
-                      id="lastName"
+                      id="last_name"
                       placeholder="Input your Last name...."
-                      {...register("lastName", {
+                      {...register("last_name", {
                         required: "Last Name is required",
                       })}
                     />
                     <IdentificationIcon className="w-6 h-6 text-primary-200" />
                   </div>
-                  {errors.lastName && (
+                  {errors.last_name && (
                     <p className="text-red-500 tracking-wider font-semibold italic">
-                      {errors.lastName.message}
+                      {errors.last_name.message}
                     </p>
                   )}
                 </div>
@@ -252,7 +277,7 @@ const RegisterPage = () => {
                 <div className="flex flex-col">
                   <label
                     className="text-lg sm:text-xl text-gray-600 font-semibold"
-                    htmlFor="phone"
+                    htmlFor="phone_number"
                   >
                     Phone Number
                   </label>
@@ -260,8 +285,8 @@ const RegisterPage = () => {
                     <input
                       className="form-input"
                       type="tel"
-                      id="phone"
-                      {...register("phone", {
+                      id="phone_number"
+                      {...register("phone_number", {
                         required: "Phone number is required",
                       })}
                     />
@@ -269,7 +294,7 @@ const RegisterPage = () => {
                   </div>
                   {errors.phone && (
                     <p className="text-red-500 tracking-wider font-semibold italic">
-                      {errors.phone.message}
+                      {errors.phone_number.message}
                     </p>
                   )}
                 </div>
@@ -313,7 +338,7 @@ const RegisterPage = () => {
                 <div className="flex flex-col">
                   <label
                     className="text-lg sm:text-xl text-gray-600 font-semibold"
-                    htmlFor="confirmPassword"
+                    htmlFor="confirm_password"
                   >
                     Confirm Password
                   </label>
@@ -322,9 +347,9 @@ const RegisterPage = () => {
                     <input
                       className="form-input"
                       type={`${showPassword ? "password" : "text"}`}
-                      id="confirmPassword"
+                      id="confirm_password"
                       //checks if both the password and confirm password are the same
-                      {...register("confirmPassword", {
+                      {...register("confirm_password", {
                         required: "Confirm password is required",
                         validate: (value) =>
                           value === passwordValue || "Passwords do not match",
@@ -332,15 +357,14 @@ const RegisterPage = () => {
                     />
                     <LockClosedIcon className="w-6 h-6 text-shadow-lg text-primary-200" />
                   </div>
-                  {errors.confirmPassword && (
+                  {errors.confirm_password && (
                     <p className="text-red-500 tracking-wider font-semibold italic">
-                      {errors.confirmPassword.message}
+                      {errors.confirm_password.message}
                     </p>
                   )}
                 </div>
               </div>
 
-              
               {!firstStep && !isLoading && (
                 <div className="flex items-center gap-2">
                   <button
@@ -397,7 +421,7 @@ const RegisterPage = () => {
                   <DotLoader />
                 ) : (
                   <div className="flex justify-between items-center bg-gray-200 rounded-full text-gray-600">
-                    <button
+                    <motion.button
                       type="button"
                       onClick={prevStep}
                       className={` ${
@@ -405,10 +429,11 @@ const RegisterPage = () => {
                           ? "bg-primary-300 p-2 px-4 rounded-full text-white"
                           : "p-2 px-4 "
                       } duration-700`}
+                      whileTap={{ scale: 0.95 }}
                     >
                       Previous
-                    </button>
-                    <button
+                    </motion.button>
+                    <motion.button
                       type="button"
                       onClick={nextStep}
                       className={` ${
@@ -416,21 +441,23 @@ const RegisterPage = () => {
                           ? "bg-primary-300 p-2 px-4 rounded-full text-white"
                           : "p-2 px-4 "
                       } duration-700`}
+                      whileTap={{ scale: 0.95 }}
                     >
                       Next
-                    </button>
+                    </motion.button>
                   </div>
                 )}
                 {!firstStep && (
-                  <button
+                  <motion.button
                     type="submit"
                     disabled={isLoading}
                     className={` ${
                       isLoading ? "secondary-button" : "primary-button"
                     } w-full sm:w-auto`}
+                    whileTap={!isLoading ? { scale: 0.95, rotate: -1 } : {}}
                   >
                     Sign up
-                  </button>
+                  </motion.button>
                 )}
               </div>
               {firstStep && (
@@ -448,7 +475,7 @@ const RegisterPage = () => {
           </>
         )}
       </div>
-    </div>
+    </motion.section>
   );
 };
 

@@ -13,33 +13,51 @@ import MedicationsPage from "./pages/MedicationsPage";
 import VitalsPage from "./pages/VitalsPage";
 import AppointmentPage from "./pages/AppointmentPage";
 import SupportPage from "./pages/SupportPage";
-
+import { AuthProvider } from "./context/AuthContext";
+import UserProtectedRoute from "./components/UserProtectedRoute";
+import { Toaster } from "react-hot-toast";
 
 
 function App() {
   useSmoothScroll();
   const location = useLocation();
-  
+
   return (
-      <AnimatePresence mode="wait">
-        <ScrollToTop/>
-        <Routes location={location} key={location.key}>
-          {/* Public pages routes */}
-          <Route element={<Mainlayout />}>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/register" element={<RegisterPage />} />
-          </Route>
-          <Route element={<Dashboardlayout />}>
-            <Route path="/dashboard" element={<DashboardHomepage />} />
-            <Route path="/medications" element={<MedicationsPage />} />
-            <Route path="/vitals" element={<VitalsPage />} />
-            <Route path="/appointment" element={<AppointmentPage />} />
-            <Route path="/support" element={<SupportPage />} />
-          </Route>
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
-      </AnimatePresence>
+    <AuthProvider>
+      <Toaster
+      position="top-center"
+      reverseOrder={false}
+      toastOptions={{
+        
+        duration: 3000,
+        style: {
+          background: '#006494',
+          color: '#fff',
+        },
+      }}
+    />
+    <AnimatePresence mode="wait">
+      <ScrollToTop />
+      <Routes location={location} key={location.pathname}>
+        {/* Public pages routes */}
+        <Route element={<Mainlayout />}>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+        </Route>
+        <Route element={<UserProtectedRoute />}>
+        <Route element={<Dashboardlayout />}>
+          <Route path="/user/dashboard" element={<DashboardHomepage />} />
+          <Route path="/medications" element={<MedicationsPage />} />
+          <Route path="/vitals" element={<VitalsPage />} />
+          <Route path="/appointment" element={<AppointmentPage />} />
+          <Route path="/support" element={<SupportPage />} />
+        </Route>
+        </Route>
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+    </AnimatePresence>
+    </AuthProvider>
   );
 }
 

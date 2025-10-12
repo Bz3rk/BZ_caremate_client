@@ -17,7 +17,7 @@ const MedicationsCard = () => {
 
 
   return (
-    <div className="bg-white h-[350px]  ml-2 overflow-y-auto hide-scrollbar shadow-[2px_2px_2px_0px_rgba(0,0,0,0.3)]">
+    <div className="bg-white h-[350px]  ml-2 overflow-y-auto hide-scrollbar shadow-card">
       <div className="flex items-center justify-between rounded-t-md bg-primary-300 text-white p-2 ">
         <p className=" text-lg font-Montserrat font-semibold uppercase">
           Upcoming Meds

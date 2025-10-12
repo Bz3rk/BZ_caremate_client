@@ -11,10 +11,10 @@ const VitalsChart = () => {
     date: format(new Date(item.date), "dd MMM yy")
   }))
 
-  console.log(data)
+
   
   return (
-    <div className='lg:col-span-3 md:col-span-2 mt-4 hidden sm:block shadow-[0px_0px_2px_0px_rgba(0,0,0,0.3)]  text-gray-600 text-xs font-semibold font-OpenSans'>
+    <div className='lg:col-span-3 md:col-span-2 mt-4 hidden sm:block shadow-card  text-gray-600 text-xs font-semibold font-OpenSans'>
       <p className='text-2xl text-center font-Montserrat tracking-widest text-white font-semibold mb-2 py-2 bg-primary-300 rounded-t-md'>
         Vitals Chart
       </p>

@@ -9,18 +9,13 @@ import {
   ArrowRightIcon,
 } from "@heroicons/react/24/solid";
 
-import {
-  slideUp,
-  slideDown,
-  slideLeft,
-} from "../utility/animation";
+import { slideUp, slideDown, slideLeft } from "../utility/animation";
 import { motion } from "framer-motion";
 
 const Works = () => {
-
   const firstStep = Steps.find((step) => step.id == 1);
   const [activeStep, setActiveStep] = useState(firstStep);
-  console.log(activeStep);
+
   const Icon = activeStep.icon;
 
   return (
@@ -29,8 +24,8 @@ const Works = () => {
         variants={slideDown(0.4)}
         initial="hidden"
         whileInView="visible"
-        viewport={{once:true, amount:0.5}}
-        className="text-3xl font-Montserrat text-center text-primary-300 font-bold italic"
+        viewport={{ once: true, amount: 0.5 }}
+        className="text-3xl font-Montserrat text-center text-primary-300 dark:text-primary-200 font-bold italic"
       >
         How Caremate Works
       </motion.div>
@@ -42,7 +37,7 @@ const Works = () => {
           variants={slideUp(0.6)}
           initial="hidden"
           whileInView="visible"
-          viewport={{once:true, amount:0.5}}
+          viewport={{ once: true, amount: 0.5 }}
           className="flex space-x-6"
         >
           {Steps.map((step) => (
@@ -61,7 +56,7 @@ const Works = () => {
               </button>
 
               {/* Step Label */}
-              <span className="hidden md:block ml-2 text-gray-600 font-medium">
+              <span className="hidden md:block ml-2 text-gray-600 dark:text-gray-300 font-medium">
                 {step.title}
               </span>
 
@@ -75,14 +70,13 @@ const Works = () => {
 
         {/* Description panel  */}
 
-        <div className=" bg-gray-100 w-[80%] md:w-[70%] border-2 border-primary-200 my-2 rounded-2xl shadow-lg p-8 mx-auto ">
-          
+        <div className=" bg-gray-100 w-[90%] md:w-[70%] border-2 border-primary-200 my-2 rounded-2xl shadow-lg p-8 mx-auto ">
           <motion.div
             variants={slideLeft(0.4)}
             key={activeStep.id}
             initial="hidden"
             animate="visible"
-            viewport={{once:true, amount:0.5}}
+            viewport={{ once: true, amount: 0.5 }}
             className="flex flex-col justify-center items-center"
           >
             <Icon className="w-12 h-12 text-primary-200" />
